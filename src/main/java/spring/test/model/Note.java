@@ -1,5 +1,6 @@
 package spring.test.model;
 
+import java.util.Optional;
 import java.util.UUID;
 
 public record Note (
@@ -14,5 +15,10 @@ public record Note (
             throw new RuntimeException("노트가 없습니다.");
         }
         return 1;
+    }
+
+    public interface NoteCase {
+        public Optional<Note> addNote(Note emptyIdNote, UUID newNoteId);
+        public Note getNote();
     }
 }
